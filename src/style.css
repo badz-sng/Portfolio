@@ -57,12 +57,103 @@ body {
 .projects-grid { display:grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
 
 .card, .portfolio-card { background: var(--card-bg); border-radius: 12px; padding: 1.25rem; text-align: left; }
+.portfolio-card { display:flex; gap:1rem; align-items:flex-start; }
+.card-image { width:35%; max-width:220px; height:auto; object-fit:cover; border-radius:10px; flex-shrink:0; }
+.card-body { display:flex; flex-direction:column; flex:1; }
 .card-title { margin: 0 0 0.5rem 0; font-size:1.1rem; }
 .card-desc { margin: 0 0 1rem 0; color: var(--muted); }
 .card-link { color: var(--accent); font-weight:600; }
+.portfolio-card {
+  position: relative;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(100, 108, 255, 0.35);
+}
+
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(100, 108, 255, 0.18),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.portfolio-card:hover::before {
+  opacity: 1;
+}
+
+.caret {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  color: var(--accent);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+#typed-text {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .portfolio-card { flex-direction:column; }
+  .card-image { width:100%; height:auto; max-width: none; }
+}
+
+#cursor-light {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background: radial-gradient(
+    600px circle at 50% 50%,
+    rgba(255, 255, 255, 0.08),
+    rgba(15, 23, 32, 0.95) 60%
+  );
+
+  transition: background 0.05s linear;
+}
+
+body > *:not(#cursor-light) {
+  position: relative;
+  z-index: 1;
+}
+
+
 
 .about, .contact { margin-top: 2rem; }
 .site-footer { padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.04); text-align:center; color:var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card {
+    transition: none;
+  }
+  .portfolio-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
 
 @media (max-width: 900px) {
   .projects-grid { grid-template-columns: repeat(2,1fr); }

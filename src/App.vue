@@ -1,10 +1,13 @@
 <script setup>
 import PortfolioCard from './components/PortfolioCard.vue'
+import project1 from './assets/project1.svg'
+import deskr from './assets/deskr.png'
+import irims from './assets/irims.png'
 
 const projects = [
-  { id: 1, title: 'Project One', description: 'A short description of project one.', link: '#' },
-  { id: 2, title: 'Project Two', description: 'A short description of project two.', link: '#' },
-  { id: 3, title: 'Project Three', description: 'A short description of project three.', link: '#' }
+  { id: 1, title: 'FilePilot', description: 'Document Management System, tailored for modern workflows', link: 'https://github.com/badz-sng/registrar-document-management-system', image: project1 },
+  { id: 2, title: 'Incident Report Information Management System', description: 'A web and mobile application built to streamline operations and emergency response.', link: 'https://github.com/prxncxss03/lifesaver-web-backend', image: irims },
+  { id: 3, title: 'Desk/r', description: 'Hot-desking web application created to streamline workspace management.', link: 'https://github.com/badz-sng/hotdesk', image: deskr }
 ]
 </script>
 
@@ -12,7 +15,10 @@ const projects = [
   <div id="app" class="page">
     <header class="site-header">
       <div class="container header-inner">
-        <h1 class="site-title">Your Name — Frontend Developer</h1>
+        <h1 class="site-title">
+          Hi there!
+        </h1>
+
         <nav class="site-nav">
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
@@ -23,8 +29,12 @@ const projects = [
 
     <main class="container main-content">
       <section class="hero">
-        <h2>Hi, I'm Your Name</h2>
-        <p>I build fast, accessible web apps. I focus on Vue, CSS, and delightful UIs.</p>
+        <h1 class="site-title">
+          Emmanuel Sunga —
+          <span id="typed-text"></span>
+          <span class="caret">|</span>
+        </h1>
+        <p>I build fast, accessible web apps. I focus on Vue plus Laravel Framework for fast, secure, and scalable solutions.</p>
         <a class="cta" href="#projects">See my work</a>
       </section>
 
@@ -37,24 +47,34 @@ const projects = [
             :title="p.title"
             :description="p.description"
             :link="p.link"
+            :image="p.image"
           />
         </div>
       </section>
 
       <section id="about" class="about">
         <h3>About</h3>
-        <p>Short bio — what you do and the kind of work you enjoy.</p>
+        <p>I am a passionate full-stack developer with an ample experience in Vue.js and Laravel. I enjoy building scalable web applications and solving complex problems with clean, efficient code.</p>
       </section>
 
       <section id="contact" class="contact">
         <h3>Contact</h3>
-        <p>Let’s work together — <a href="mailto:you@example.com">you@example.com</a></p>
+        <p>Let’s work together — <a href="mailto:emmanuel.fullstack.dev@gmail.com">emmanuel.fullstack.dev@gmail.com</a></p>
+        <p>Contact number: <a href="tel:+639475529362">+639475529362</a></p>
+        <p>If you are an employer, <a href="https://drive.google.com/file/d/1QIJEJnu8jUPZcHu173GLZX4gmffI_yT-/view?usp=sharing">here</a> is my resume.</p>
+        <hr>
+        <p>Find me on
+          <a href="
+          https://www.linkedin.com/in/sunga-emmanuel-p/" target="_blank" rel="noopener">LinkedIn</a>,
+          <a href="
+          https://github.com/badz-sng" target="_blank" rel="noopener">GitHub</a>
+        </p>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <small>© Your Name — Built with Vite + Vue</small>
+        <small>Built with Vite + Vue, made with ❤️</small>
       </div>
     </footer>
   </div>
