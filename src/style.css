@@ -140,7 +140,58 @@ body > *:not(#cursor-light) {
   z-index: 1;
 }
 
+.certificate-carousel {
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Global image hover zoom (applies to all images) */
+img {
+  transition: transform 0.25s ease, filter 0.25s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+img:hover,
+img:focus {
+  transform: scale(1.06);
+}
+/* Ensure portfolio card doesn't overflow when image scales */
+.portfolio-card {
+  overflow: hidden;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  img {
+    transition: none;
+    transform: none;
+  }
+}
 
 .about, .contact { margin-top: 2rem; }
 .site-footer { padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.04); text-align:center; color:var(--muted); }
