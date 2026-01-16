@@ -4,6 +4,7 @@ import deskr from './assets/deskr.png'
 import irims from './assets/irims.png'
 import filepilot from './assets/filepilot.png'
 import SchoolAward from './assets/SchoolAward.jpg'
+import BestCapstone from './assets/BestCapstone.jpg'
 
 // certificate images
 
@@ -19,7 +20,8 @@ const certificates = [
   { title: 'Cybersecurity Certification by CISCO', image: cybsec2 },
   { title: 'Cybersecurity Awareness', image: cybsecaw },
   { title: 'VAWC Training Completion', image: vawc },
-  { title: 'School Award for Gaining CISCO Certifications', image: SchoolAward }
+  { title: 'School Award for Gaining CISCO Certifications', image: SchoolAward },
+  { title: 'Best Capstone Project Award', image: BestCapstone }
 ]
 
 const projects = [
